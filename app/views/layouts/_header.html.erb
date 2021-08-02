@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Navbar</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,3 +25,22 @@
     </div>
   </div>
 </nav>
+-->
+
+<div class="header">
+  <div class="headerLeft">
+    <%= link_to '🔥핫해요', 'localhost:3000/top_ten' %>
+    <%= link_to '실시간', 'localhost:3000/posts' %>
+    <%= link_to '글쓰기', 'localhost:3000/write' %>
+  </div>
+  <h1>IMG</h1>
+  <div class="headerRight">
+    <% if user_signed_in? %>
+      <%= link_to '로그아웃', destory_user_session_path, method: :delete %>
+      <%= link_to '회원 수정', edit_user_registration_path %>
+    <% else %>
+      <%= link_to '로그인', new_user_session_path %>
+      <%= link_to '회원가입', new_user_registration_path %>
+    <% end %>
+  </div>
+</div>

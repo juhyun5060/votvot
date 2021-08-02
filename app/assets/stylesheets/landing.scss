@@ -1,3 +1,28 @@
-// Place all the styles related to the landing controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+.container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15vh;
+}
+
+.item {
+    width: 60%;
+    margin-top: 5vh;
+}
+.item:nth-child(even) {
+    margin-left: auto;
+    text-align: right;
+    margin-top: 15vh;
+}
+.item:last-child {
+    margin-top: 15vh;
+}
+
+.topic {
+    font-size: 4rem;
+}
+
+.detail {
+    margin-top: 4vh;
+    font-size: 1rem;
+    color: #727272;
+}
