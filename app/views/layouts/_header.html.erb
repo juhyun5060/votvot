@@ -36,7 +36,7 @@
   <h1>IMG</h1>
   <div class="headerRight">
     <% if user_signed_in? %>
-      <%= link_to '로그아웃', destory_user_session_path, method: :delete %>
+      <%= link_to '로그아웃', destroy_user_session_path, method: :delete %>
       <%= link_to '회원 수정', edit_user_registration_path %>
     <% else %>
       <%= link_to '로그인', new_user_session_path %>
