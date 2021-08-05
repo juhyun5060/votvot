@@ -1,9 +1,8 @@
 .header {
-    padding: 3vh 7vh 3vh 7vh;
+    padding: 3vh 13vh 3vh 13vh;
     margin-bottom: 15vh;
     box-shadow: 0 3px 5px #DCDCDC;
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
     align-items: center;
 
@@ -13,7 +12,13 @@
         text-decoration-line: none;
     }
     a:hover {
-        color: black;
+        color: #6600ff;
     }
 }
 
+.headerLeft, .headerRight {
+    width: 300px;
+}
+.headerRight {
+    text-align: right;;
+}
