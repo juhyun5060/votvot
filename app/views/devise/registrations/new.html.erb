@@ -1,38 +1,44 @@
+<img src="/images/logo.png" class="sign_img" />
+
 <div class="regisCon">
 
   <h2>회원가입</h2>
 
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    <%= render "devise/shared/error_messages", resource: resource %>
+  <div class="sign_form">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
 
-    <div class="field">
-      <%= f.label :nickname, "닉네임" %><br />
-      <%= f.text_field :nickname, autofocus: true, autocomplete: "off", placeholder: "닉네임 입력" %>
-    </div>
+      <div class="field">
+        <%= f.label :nickname, "닉네임" %><span class="required">*</span><br />
+        <%= f.text_field :nickname, autofocus: true, autocomplete: "off", placeholder: "닉네임 입력" %>
+      </div>
 
-    <div class="field">
-      <%= f.label :email, "이메일" %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "off", placeholder: "이메일 주소 입력" %>
-    </div>
+      <div class="field">
+        <%= f.label :email, "이메일" %><span class="required">*</span><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "off", placeholder: "이메일 주소 입력" %>
+      </div>
 
-    <div class="field">
-      <%= f.label :password, "비밀번호" %>
-      <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em>
-      <% end %><br />
-      <%= f.password_field :password, autocomplete: "off", placeholder: "비밀번호(숫자, 영문, 특수문자 조합 최소 8자)" %>
-    </div>
+      <div class="field">
+        <%= f.label :password, "비밀번호" %><span class="required">*</span>
+        <!-- 
+          <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <% end %>
+        -->
+        <br />
+        <%= f.password_field :password, autocomplete: "off", placeholder: "비밀번호(숫자, 영문, 특수문자 조합 최소 8자)" %>
+      </div>
 
-    <div class="field">
-      <% f.label :password_confirmation %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "비밀번호 확인" %>
-    </div>
+      <div class="field pass_con">
+        <% f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "비밀번호 확인" %>
+      </div>
 
-    <div class="actions">
-      <%= f.submit "Sign up" %>
-    </div>
-  <% end %>
+      <div class="actions">
+        <%= f.submit "Sign up", class: 'submit' %>
+      </div>
+    <% end %>
+
+  </div>
   
 </div>
-
-<%= render "devise/shared/links" %>
