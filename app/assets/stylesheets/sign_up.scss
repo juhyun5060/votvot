@@ -1,4 +1,4 @@
-.regisCon {
+.userCon {
     width: 28.4vw;
     height: 64.3vh;
     box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.16);
@@ -6,7 +6,6 @@
     background-color: #fff;
     margin: 0 auto;
     position: relative;
-    z-index: -1;
     border-radius: 30px;
     display: flex;
     flex-direction: column;
@@ -53,6 +52,11 @@
             background-color: transparent;
             margin: 10% 5% 0 10%;
         }
+
+        .submit:hover {
+            background-color: #60f;
+            color: #ffffff;
+        }
     }
 
     
@@ -65,4 +69,5 @@
     left: 50%;
     transform: translate(-50%, -26%);
     z-index: 1;
+    background-color: white;
 }
