@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+         has_many :posts
+
   validates :nickname, :uniqueness => { :message => '이미 존재하는 닉네임입니다.' }
   validates :nickname, :presence => { :message => '필수 입력사항입니다.' }
   validates_confirmation_of :password, if: :password_required? # recommended
