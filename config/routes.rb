@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   devise_for :users
 
   root 'landing#index'
+  get '/my_page' => 'my_page#index'
+  
   # devise_scope :user do
   #   get '/login' => 'devise/sessions#new'
   #   post '/login' => 'devise/session#create'
