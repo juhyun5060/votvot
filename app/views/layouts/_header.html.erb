@@ -1,14 +1,20 @@
 <div class="header">
   <div class="headerLeft">
-    <%= link_to '🔥핫해요', 'localhost:3000/top_ten' %>
-    <%= link_to '실시간', 'localhost:3000/posts' %>
-    <%= link_to '글쓰기', 'localhost:3000/write' %>
+    <%= link_to '🔥핫해요', '/top_ten' %>
+    <%= link_to '실시간', '/posts' %>
+    <%= link_to '글쓰기', '/posts/new' %>
   </div>
   <a href="<%= root_path %>"><%= image_tag("/images/logo.png", width: '50px;') %></a>
   <div class="headerRight">
     <% if user_signed_in? %>  <!-- user_signed_in : 유저가 로그인 되어있는지 검사 -->
-      <%= link_to current_user.nickname, root_path %> <!-- current_user : 현재 유저에 대한 모델 정보 -->
-      <%= link_to '로그아웃', destroy_user_session_path, method: :delete %>  <!-- 임시 -->
+      <div class="dropdown">
+        <%= link_to current_user.nickname %>님 <!-- current_user : 현재 유저에 대한 모델 정보 -->
+        <div class="dropdown-content">
+          <p><%= link_to '마이페이지', '/my_page' %></p>
+          <hr>
+          <p><%= link_to '로그아웃', destroy_user_session_path, method: :delete %></p>
+        </div>
+      </div>
     <% else %>
       <%= link_to '로그인', new_user_session_path %>
       <%= link_to '회원가입', new_user_registration_path %>

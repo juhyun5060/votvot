@@ -1,13 +1,15 @@
 .landingContainer {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
     align-items: center;
+    margin-top: 15vh;
     margin-bottom: 15vh;
 
     .item {
         width: 45%;
         margin-top: 25vh;
+        margin-left: 4vh;
+        margin-right: 4vh;
     
         img {
             width: 80%;
@@ -19,13 +21,14 @@
         }
         
         .detail {
+            font-weight: lighter;
             margin-top: 3vh;
             font-size: 1.5vw;
             color: #727272;
         }
     
     }
-    .item:nth-child(4) {
+    .item:nth-child(even) {
         margin-left: auto;
         text-align: right;
     }
