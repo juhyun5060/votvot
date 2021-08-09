@@ -1,18 +1,19 @@
-.first_header {
-    display:flex;
-    justify-content: space-between;
-    align-items: center;
 
-    .title {
-        margin: 7.6vh 9.4vw 5.3vh 0;
-        font-size: 20px;
-        font-weight: bold;
-    }
-    
-    .write_btn {
-        background-color: #60f;
-        color: #fff;
-    }
+.title {
+    margin: 7.6vh 9.4vw 5.3vh 0;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.write_btn {
+    background-color: #60f;
+    color: #fff;
+    right: 90px;
+    top: 260px;
+    padding: 15px 30px;
+    border-radius: 30px;
+    position: fixed;
+
 }
 
 .post_container {
