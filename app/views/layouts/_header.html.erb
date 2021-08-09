@@ -8,7 +8,7 @@
   <div class="headerRight">
     <% if user_signed_in? %>  <!-- user_signed_in : 유저가 로그인 되어있는지 검사 -->
       <div class="dropdown">
-        <%= link_to current_user.nickname %>님 <!-- current_user : 현재 유저에 대한 모델 정보 -->
+        <%= link_to current_user.nickname+'님' %> <!-- current_user : 현재 유저에 대한 모델 정보 -->
         <div class="dropdown-content">
           <p><%= link_to '마이페이지', '/my_page' %></p>
           <hr>
