@@ -13,6 +13,7 @@
     align-items: center;
     font-size: 10px;
     margin-bottom: 15vh;
+    margin-top: 15vh;
 
     h2 {
         color: #000000;
@@ -21,6 +22,9 @@
 
     .sign_form {
 
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         font-size: 1.3em;
        
         label {
@@ -63,7 +67,7 @@
 }
 
 .sign_img {
-    width: 5vw;
+    width: 60px;
     position: absolute;
     top: 26%;
     left: 50%;
