@@ -13,7 +13,12 @@
     padding: 15px 30px;
     border-radius: 30px;
     position: fixed;
+}
 
+.write_btn:hover {
+    color: #60f;
+    background-color: white;
+    border: 1px solid #60f;
 }
 
 .post_container {
