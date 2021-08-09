@@ -1,8 +1,8 @@
 <div class="header">
   <div class="headerLeft">
     <%= link_to '🔥핫해요', 'localhost:3000/top_ten' %>
-    <%= link_to '실시간', 'localhost:3000/posts' %>
-    <%= link_to '글쓰기', 'localhost:3000/write' %>
+    <%= link_to '실시간', posts_path %>
+    <%= link_to '글쓰기', new_post_path %>
   </div>
   <a href="<%= root_path %>"><%= image_tag("/images/logo.png", width: '50px;') %></a>
   <div class="headerRight">
