@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[ show edit update destroy ]
   before_action :authenticate_user!, except: %i[ show index ]
+  before_action :correct_user, only: %i[ edit update destroy ]
 
   # GET /posts or /posts.json
   def index
@@ -13,7 +14,7 @@ class PostsController < ApplicationController
 
   # GET /posts/new
   def new
-    @post = Post.new
+    @post = current_user.posts.build
   end
 
   # GET /posts/1/edit
@@ -22,7 +23,7 @@ class PostsController < ApplicationController
 
   # POST /posts or /posts.json
   def create
-    @post = Post.new(post_params)
+    @post = current_user.posts.build(post_params)
 
     respond_to do |format|
       if @post.save
@@ -58,6 +59,7 @@ class PostsController < ApplicationController
   end
 
   private
+
     # Use callbacks to share common setup or constraints between actions.
     def set_post
       @post = Post.find(params[:id])
@@ -67,4 +69,11 @@ class PostsController < ApplicationController
     def post_params
       params.require(:post).permit(:title, :content, :user_id)
     end
+
+    # user authenticate
+    def correct_user
+      @post = current_user.posts.find_by(id: params[:id])
+      redirect_to posts_path, notice: "접근 권한이 없습니다." if @post.nil?
+    end
+
 end

@@ -9,17 +9,17 @@
       <%= render "devise/shared/error_messages", resource: resource %>
 
       <div class="field">
-        <%= f.label :nickname, "닉네임" %><span class="required">*</span><br />
+        <%= f.label :nickname, "닉네임", class: 'd-inline' %>&nbsp;<span class="required">*</span><br />
         <%= f.text_field :nickname, autofocus: true, autocomplete: "off", placeholder: "닉네임 입력" %>
       </div>
 
       <div class="field">
-        <%= f.label :email, "이메일" %><span class="required">*</span><br />
+        <%= f.label :email, "이메일", class: 'd-inline' %>&nbsp;<span class="required">*</span><br />
         <%= f.email_field :email, autofocus: true, autocomplete: "off", placeholder: "이메일 주소 입력" %>
       </div>
 
       <div class="field">
-        <%= f.label :password, "비밀번호" %><span class="required">*</span>
+        <%= f.label :password, "비밀번호", class: 'd-inline' %>&nbsp;<span class="required">*</span>
         <!-- 
           <% if @minimum_password_length %>
           <em>(<%= @minimum_password_length %> characters minimum)</em>
