@@ -1,20 +1,28 @@
-<span>실시간 게시글</span>
+<div>
 
-<div class="post_container">
-  <% @posts.each do |post| %>
-    <div class="post">
-      <h5><%= post.title %></h5>
-      <h6><%= post.content %></h6>
+  <div class="first_header">
+    <div class="title">실시간 게시글</div>
+    <%# <button class="write_btn">글쓰기</button> %>
+    <%= link_to '글쓰기', new_post_path, class: 'write_btn' %>
+  </div>
 
-      <h6><%= post.user.nickname %></h6>
-      <!-- 
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      -->
-    </div>
-  <% end %>
+  <div class="post_container">
+    <% @posts.each do |post| %>
+      <div class="post">
+        <h5><%= link_to post.title, post %></h5>
+        <h6><%= post.content %></h6>
+
+        <h6><%= post.user.nickname %>님</h6>
+        <!-- 
+          <td><%= link_to 'Show', post %></td>
+          <td><%= link_to 'Edit', edit_post_path(post) %></td>
+          <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        -->
+      </div>
+    <% end %>
+  </div>
+  <br>
+
+
+
 </div>
-<br>
-
-<%= link_to 'New Post', new_post_path %>
