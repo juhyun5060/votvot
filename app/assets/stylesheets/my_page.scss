@@ -1,4 +1,5 @@
 .myPage {
+    // 마이페이지
     .banner {
         width: 100vw;
         height: 200px;
@@ -65,5 +66,15 @@
         .my {
             
         }
+    }
+
+    // 마이페이지 - 수정
+    .field {
+        margin-top: 3vh;
+    }
+
+    .actions {
+        display: inline;
+        margin-right: 1.5vw;
     }
 }

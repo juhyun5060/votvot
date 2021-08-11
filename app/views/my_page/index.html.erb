@@ -21,7 +21,8 @@
                 </div>
             </div>
 
-            <%= button_tag '회원정보수정' %>
+            <%# <%= button_tag '회원정보수정' %>
+            <%= button_to '회원정보수정', edit_user_registration_path, method: 'get' %>
         </div>
 
         <%# 오른쪽 내가 쓴 게시글 & 내가 투표한 게시글 %>
