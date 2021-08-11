@@ -1,23 +1,4 @@
 .userCon {
-    width: 28.4vw;
-    height: 64.3vh;
-    box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.16);
-    border: solid 1px #cecece;
-    background-color: #fff;
-    margin: 0 auto;
-    position: relative;
-    border-radius: 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-size: 10px;
-    margin-bottom: 15vh;
-
-    h2 {
-        color: #000000;
-        font-size: 2em;
-    }
 
     .login_form {
 
@@ -34,7 +15,7 @@
             outline: 0;
             border-width: 0 0 1px;
             border-color: #cacaca;
-            text-indent:10%;
+            text-indent: 30px;
         }
 
         .email {
@@ -86,13 +67,4 @@
     }
 
     
-}
-
-.sign_img {
-    width: 5vw;
-    position: absolute;
-    top: 26%;
-    left: 50%;
-    transform: translate(-50%, -26%);
-    background-color: white;
 }
