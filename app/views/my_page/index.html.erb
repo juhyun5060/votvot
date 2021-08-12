@@ -10,7 +10,11 @@
             <div class="info">
                 <%# 프로필 사진 %>
                 <div class="box">
-                    <img class="img">
+                    <% if current_user.profile.attached? %>
+                        <%= image_tag user.profile, class: 'img' %>
+                    <% else %>
+                        <%= image_tag '/images/back.jpeg', class: 'img' %>
+                    <% end %>
                 </div>
 
                 <%# 프로필 사진 외 텍스트들 %>

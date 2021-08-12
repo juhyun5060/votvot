@@ -94,6 +94,11 @@
                   <%= f.password_field :current_password, autocomplete: "off", placeholder: "현재 비밀번호" %>
                 </div>
 
+                 <div class="field">
+                  <% f.label :profile %>
+                  <%= f.file_field :profile %>
+                </div>
+
                 <div class="actions">
                   <%= f.submit "확인" %>
                 </div>
