@@ -66,7 +66,7 @@ class SubjectsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def subject_params
-      params.require(:subject).permit(:sub_con, :votes)
+      params.require(:subject).permit(:sub_con, :votes, :post_id)
     end
 
     # user authenticate

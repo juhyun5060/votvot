@@ -6,6 +6,11 @@
 <div class="post_container">
   <% @posts.each do |post| %>
     <div class="post">
+      <% if post.photo.attached? %>
+        <%= image_tag post.photo, class: 'photo_con' %>
+      <% else %>
+        <%= image_tag '/images/back.jpeg', class: 'photo_con' %>
+      <% end %>
       <h5><%= link_to post.title, post %></h5>
       <h6><%= post.content %></h6>
 

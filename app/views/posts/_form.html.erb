@@ -24,6 +24,11 @@
     </div>
 
     <div class="field">
+      <% form.label :photo %>
+      <%= form.file_field :photo, placeholder: '사진 첨부' %>
+    </div>
+
+    <div class="field">
     <%= form.number_field :user_id,
         id: :post_user_id, value: current_user.id, type: :hidden %>
     </div>

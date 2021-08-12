@@ -9,5 +9,20 @@
   <%= @post.content %>
 </p>
 
+<p>
+  <strong>photo:</strong>
+  <% if @post.photo.attached? %>
+    <%= image_tag @post.photo, class: 'photo' %>
+  <% end %>
+</p>
+
+<% if @post.subjects %>
+  <p>
+    <strong>subjects:</strong>
+    <%= @post.subjects %>
+  </p>
+<% end %>
+
+
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>

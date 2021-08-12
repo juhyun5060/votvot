@@ -26,7 +26,7 @@ class PostsController < ApplicationController
     @post = current_user.posts.build(post_params)
 
     respond_to do |format|
-      if @post.save
+      if (current_user.posts.build(post_params)).save
         format.html { redirect_to new_subject_path, notice: "Post was successfully created." }
         format.json { render :show, status: :created, location: @post }
         
@@ -69,7 +69,7 @@ class PostsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def post_params
-      params.require(:post).permit(:title, :content, :user_id)
+      params.require(:post).permit(:title, :content, :photo, :user_id)
     end
 
     # user authenticate
