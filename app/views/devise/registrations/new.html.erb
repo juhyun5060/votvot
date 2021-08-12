@@ -36,7 +36,9 @@
 
       <div class="field">
         <% f.label :profile %>
-        <%= f.file_field :profile %>
+        <%= f.file_field :profile,
+         placeholder: 'Upload profile',
+         direct_upload: true %>
       </div>
 
       <div class="actions">
