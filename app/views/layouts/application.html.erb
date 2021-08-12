@@ -22,6 +22,9 @@
     <% if notice %>
       <%= render 'layouts/alerts' %>
     <% end %>
+    <% if posts_path %>
+      <%= image_tag '/images/banner.png', class: 'banner_img' %>
+    <% end %>
     <div class="container">
       <%= yield %>
     </div>
