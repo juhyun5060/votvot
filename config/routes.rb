@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   root 'landing#index'
   get '/my_page' => 'my_page#index'
+  get '/users/edit' => 'devise/registrations#edit'
   
   # devise_scope :user do
   #   get '/login' => 'devise/sessions#new'
