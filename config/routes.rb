@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'toptens/index'
   resources :subjects
   resources :posts
   devise_for :users
@@ -7,6 +6,8 @@ Rails.application.routes.draw do
   root 'landing#index'
   get '/my_page' => 'my_page#index'
   get '/users/edit' => 'devise/registrations#edit'
+
+  get '/posts/:post_id/subjects/new' => 'subjects#new'
   
   # devise_scope :user do
   #   get '/login' => 'devise/sessions#new'

@@ -21,6 +21,11 @@
     <%= form.number_field :votes %>
   </div>
 
+   <div class="field">
+    <%= form.label :post_id %>
+    <%= form.number_field :post_id, value: post_id, type: :hidden %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

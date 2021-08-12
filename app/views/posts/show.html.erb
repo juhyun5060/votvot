@@ -19,7 +19,9 @@
 <% if @post.subjects %>
   <p>
     <strong>subjects:</strong>
-    <%= @post.subjects %>
+    <% @post.subjects.each do |subject| %>
+        <%= subject.sub_con %>
+    <% end %>
   </p>
 <% end %>
 

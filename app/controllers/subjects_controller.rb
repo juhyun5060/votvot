@@ -15,6 +15,7 @@ class SubjectsController < ApplicationController
   # GET /subjects/new
   def new
     @subject = Subject.new
+    @post_id = params[:post_id]
   end
 
   # GET /subjects/1/edit
