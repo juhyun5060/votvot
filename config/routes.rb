@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'toptens/index'
   resources :subjects
   resources :posts
   devise_for :users
