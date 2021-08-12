@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get '/users/edit' => 'devise/registrations#edit'
 
   get '/posts/:post_id/subjects/new' => 'subjects#new'
+  get '/topten' => 'toptens#index'
   
   # devise_scope :user do
   #   get '/login' => 'devise/sessions#new'
