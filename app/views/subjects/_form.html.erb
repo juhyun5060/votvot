@@ -13,15 +13,15 @@
 
   <div class="field">
     <%= form.label :sub_con %>
-    <%= form.text_field :sub_con %>
+    <%= form.text_field :sub_con, :required => true %>
   </div>
 
-  <div class="field">
+  <div class="field invisible">
     <%= form.label :votes %>
-    <%= form.number_field :votes %>
-  </div>
+    <%= form.number_field :votes, value: 0, type: :hidden %>
+  </div>  
 
-   <div class="field">
+   <div class="field invisible">
     <%= form.label :post_id %>
     <%= form.number_field :post_id, value: post_id, type: :hidden %>
   </div>
