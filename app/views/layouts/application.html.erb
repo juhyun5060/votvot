@@ -22,7 +22,13 @@
     <% if notice %>
       <%= render 'layouts/alerts' %>
     <% end %>
-    <div class="container">
+    <!-- <% if posts_path %>
+      <%= image_tag '/images/banner.png', class: 'banner_img' %>
+    <% else %>
+
+    <% end %>
+    -->
+    <div class="con">
       <%= yield %>
     </div>
 

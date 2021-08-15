@@ -34,6 +34,13 @@
         <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "비밀번호 확인" %>
       </div>
 
+      <div class="field">
+        <% f.label :profile %>
+        <%= f.file_field :profile,
+         placeholder: 'Upload profile',
+         direct_upload: true %>
+      </div>
+
       <div class="actions">
         <%= f.submit "회원가입", class: 'submit' %>
       </div>

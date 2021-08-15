@@ -1,21 +1,28 @@
+<%= image_tag '/images/banner.png', class: 'banner_img' %>
+<div class="container">
+  <div class="title">실시간 게시글</div>
+  <%# <button class="write_btn">글쓰기</button> %>
+  <%= link_to '글쓰기', new_post_path, class: 'write_btn' %>
 
-<div class="title">실시간 게시글</div>
-<%# <button class="write_btn">글쓰기</button> %>
-<%= link_to '글쓰기', new_post_path, class: 'write_btn' %>
+  <div class="post_container">
+    <% @posts.each do |post| %>
+      <div class="post">
+        <% if post.photo.attached? %>
+          <%= image_tag post.photo, class: 'photo_con' %>
+        <% else %>
+          <%= image_tag '/images/back.jpeg', class: 'photo_con' %>
+        <% end %>
+        <h5><%= link_to post.title, post %></h5>
+        <h6><%= post.content %></h6>
 
-<div class="post_container">
-  <% @posts.each do |post| %>
-    <div class="post">
-      <h5><%= link_to post.title, post %></h5>
-      <h6><%= post.content %></h6>
-
-      <h6><%= post.user.nickname %>님</h6>
-      <!-- 
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      -->
-    </div>
-  <% end %>
+        <h6><%= post.user.nickname %>님</h6>
+        <!-- 
+          <td><%= link_to 'Show', post %></td>
+          <td><%= link_to 'Edit', edit_post_path(post) %></td>
+          <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        -->
+      </div>
+    <% end %>
+  </div>
 </div>
 
