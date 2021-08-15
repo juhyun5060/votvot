@@ -1,9 +1,6 @@
 Rails.application.routes.draw do
-<<<<<<< HEAD
   resources :comments
-=======
   resources :subjects
->>>>>>> 0f47c72c4b4f56c69bf6654722140305dc63e0e2
   resources :posts
   devise_for :users
 
