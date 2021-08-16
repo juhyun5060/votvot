@@ -61,6 +61,12 @@ class PostsController < ApplicationController
     end
   end
 
+  # 조회수 설정
+  def log_impression
+    @hit_post = Post.find(params[:id])
+    @hit_post.impressions.create(ip_address: request.remote_ip,user_id:current_user.id)
+  end
+
   private
 
     # Use callbacks to share common setup or constraints between actions.
