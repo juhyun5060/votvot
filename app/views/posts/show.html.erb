@@ -1,30 +1,57 @@
+<div class="post_show">
+  <div class="title">
+    <%= @post.title %>
+  </div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
+  <div class="hot">
+    <%# 핫해요 %>
+  </div>
 
-<p>
-  <strong>Content:</strong>
-  <%= @post.content %>
-</p>
+  <div class="info">
+    <%# <%= @post.user.profile %> 
+    <%= @post.user.nickname %> | 
 
-<p>
-  <strong>photo:</strong>
-  <% if @post.photo.attached? %>
-    <%= image_tag @post.photo, class: 'photo' %>
-  <% end %>
-</p>
-
-<% if @post.subjects %>
-  <p>
-    <strong>subjects:</strong>
-    <% @post.subjects.each do |subject| %>
-        <%= subject.sub_con %>
+    <%
+      today = Date.current
+      post_date = Date.new(@post.created_at.year, @post.created_at.month, @post.created_at.day, @post.created_at.hour)
+    %>
+    <% if(today - post_date) <= 0 %>
+      <%= %>분전
+    <% else %>
+      <%= (today - post_date).floor %>일전
     <% end %>
-  </p>
-<% end %>
 
+    <%# 핫해요 %>
+    <img src="/images/post_show/like_count.png" width="10px">
+    <%# <%= @post.likes.count%>
 
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+    조회수
+    <%= "#{@post.unique_impression_count}" %>
+
+    댓글
+    <%= @post.comments.count %>
+  </div>
+
+  <div class="content">
+    <% if @post.photo.attached? %>
+      <%= image_tag @post.photo, class: 'photo' %>
+    <% end %>
+    <%= @post.content %>
+  </div>
+
+  <% if @post.subjects %>
+    <div class="subjects">
+      <% @post.subjects.each do |subject| %>
+          <div class="sub_box">
+            <%= subject.sub_con %>
+          </div>
+      <% end %>
+    </div>
+
+    <%= button_tag '투표하기', class: 'submit_btn' %>
+  <% end %>
+
+  <% if(current_user.id == @post.user.id) %>
+    <%= link_to 'Edit', edit_post_path(@post) %>
+  <% end %>
+</div>
