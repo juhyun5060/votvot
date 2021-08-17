@@ -68,8 +68,10 @@ class PostsController < ApplicationController
     else
         like.destroy
     end
-    redirect_to :back
+
+    redirect_to '/posts/'+params[:post_id]
   end
+
 
   private
 
