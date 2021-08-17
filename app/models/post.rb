@@ -13,5 +13,5 @@ class Post < ApplicationRecord
     def unique_impression_count
         impressions.group(:ip_address).size.keys.length
     end
-
+    
 end
