@@ -11,22 +11,24 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :sub_con %>
-    <%= form.text_field :sub_con, :required => true %>
-  </div>
-
-  <div class="field invisible">
+  <div class="field d-none">
     <%= form.label :votes %>
     <%= form.number_field :votes, value: 0, type: :hidden %>
   </div>  
 
-   <div class="field invisible">
+   <div class="field d-none">
     <%= form.label :post_id %>
     <%= form.number_field :post_id, value: post_id, type: :hidden %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  <p>
+    <div class="field d-inline">
+      <%= form.label :sub_con, '항목' %>
+      <%= form.text_field :sub_con, :required => true %>
+    </div>
+
+    <div class="actions d-inline">
+      <%= form.submit '생성' %>
+    </div>
+  </p>
 <% end %>
