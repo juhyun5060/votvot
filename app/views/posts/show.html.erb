@@ -6,7 +6,15 @@
     </div>
 
     <div class="hot">
-      <img src="/images/post_show/empty_hot.png" width="10px">
+      <% if current_user.is_like? (@post) %>
+        <form action="/posts/<%= @post.id %>/like" method="post">
+          <button class="full_hot like_btn"></button>
+        </form>
+      <% else %>
+        <form action="/posts/<%= @post.id %>/like" method="post">
+          <button class="empty_hot like_btn"></button>
+        </form>
+      <% end %>
     </div>
 
     <div class="info">
@@ -68,14 +76,3 @@
     <%# comment form %>
   </div>
 </div>
-
-<%= current_user.is_like? (@post) %>
-<% if current_user.is_like? (@post) %>
-  <form action="/posts/<%= @post.id %>/like" method="post">
-    <button>좋아요 취소</button>
-  </form>
-<% else %>
-  <form action="/posts/<%= @post.id %>/like" method="post">
-    <button>좋아요</button>
-  </form>
-<% end %>
