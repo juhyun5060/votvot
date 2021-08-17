@@ -2,13 +2,6 @@ class ToptensController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    Post.find_each do |post|
-      @like = post.likes.count
-      @posts = Post.order(:@like).limit(5)
-    end
-    # puts Post.order(:Post.likes.count)
-    # @post = Post.find_by
-    # puts @post.likes.count
-    # @post = Post.order(:)
+    @posts = Post.order('likes_count desc').limit(10)
   end
 end
