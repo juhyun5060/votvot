@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :comments
   resources :subjects
   resources :posts
   devise_for :users
@@ -11,6 +12,7 @@ Rails.application.routes.draw do
   get '/topten' => 'toptens#index'
 
   post '/posts/:post_id/like' => 'posts#like_toggle'
+  get '/vote', to: 'posts#vote', as: 'vote'
   
   # devise_scope :user do
   #   get '/login' => 'devise/sessions#new'

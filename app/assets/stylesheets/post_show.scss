@@ -1,0 +1,38 @@
+.post_show {
+    background-color: #f6f6f6;
+
+    .post {
+        background-color: white;
+        margin: 0vh 15vh;
+        padding: 0vh 10vh;
+        padding-bottom: 20vh;
+
+        .title {
+        }
+
+        .hot {
+            float: right;
+        }
+
+        .subjects {
+    
+            .sub_box {
+                border: solid 1px black;
+            }
+        }
+    
+        .submit_btn {
+            width: auto;
+            background-color: #60f;
+            color: #fff;
+            padding: 15px 30px;
+            border-radius: 30px;
+        }
+    }
+
+    .comments {
+        background-color: white;
+        margin: 0vh 15vh;
+        padding: 0vh 10vh;
+    }
+}

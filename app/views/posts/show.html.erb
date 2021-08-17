@@ -1,29 +1,73 @@
+<div class="post_show">
+  <div class="post">
 
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
+    <div class="title">
+      <%= @post.title %>
+    </div>
 
-<p>
-  <strong>Content:</strong>
-  <%= @post.content %>
-</p>
+    <div class="hot">
+      <img src="/images/post_show/empty_hot.png" width="10px">
+    </div>
 
-<p>
-  <strong>photo:</strong>
-  <% if @post.photo.attached? %>
-    <%= image_tag @post.photo, class: 'photo' %>
-  <% end %>
-</p>
+    <div class="info">
+      <%# <%= @post.user.profile %> 
+      <%= @post.user.nickname %> | 
 
-<% if @post.subjects %>
-  <p>
-    <strong>subjects:</strong>
-    <% @post.subjects.each do |subject| %>
-        <%= subject.sub_con %>
+      <%
+        today = Date.current
+        post_date = Date.new(@post.created_at.year, @post.created_at.month, @post.created_at.day, @post.created_at.hour)
+      %>
+      <% if(today - post_date) <= 0 %>
+        <%= %>분전
+      <% else %>
+        <%= (today - post_date).floor %>일전
+      <% end %>
+
+      <%# 핫해요 %>
+      <img src="/images/post_show/like_count.png" width="10px">
+      <%# <%= @post.likes.count%>
+
+      조회수
+      <%= "#{@post.unique_impression_count}" %>
+
+      댓글
+      <%= @post.comments.count %>
+      <hr>
+    </div>
+
+    <div class="content">
+      <% if @post.photo.attached? %>
+        <%= image_tag @post.photo, class: 'photo' %>
+      <% end %>
+      <%= @post.content %>
+    </div>
+
+    <% if @post.subjects %>
+      <div class="subjects">
+        <%= form_with url: "/vote", method: :get do |f| %>
+          <% @post.subjects.each do |subject| %>
+              <div class="sub_box">
+                <%= subject.sub_con %> <%= f.radio_button :subject, subject.sub_con %>
+              </div>
+          <% end %>
+          <%= f.submit "투표하기", class: 'submit_btn' %>
+        <% end %>
+      </div>
+
     <% end %>
-  </p>
-<% end %>
+
+    <% if(current_user.id == @post.user.id) %>
+      <%= link_to '편집', edit_post_path(@post) %>
+      <%= link_to '삭제', @post, method: :delete, data: { confirm: '해당 게시글을 삭제하시겠습니까?' } %>
+    <% end %>
+  </div>
+
+  <div class="comments">
+    댓글 총 <%= @post.comments.count %>개
+    <hr>
+    <%# comment form %>
+  </div>
+</div>
 
 <%= current_user.is_like? (@post) %>
 <% if current_user.is_like? (@post) %>
@@ -31,11 +75,7 @@
     <button>좋아요 취소</button>
   </form>
 <% else %>
-   <form action="/posts/<%= @post.id %>/like" method="post">
+  <form action="/posts/<%= @post.id %>/like" method="post">
     <button>좋아요</button>
   </form>
 <% end %>
-
-
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>

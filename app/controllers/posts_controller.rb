@@ -61,6 +61,7 @@ class PostsController < ApplicationController
     end
   end
 
+<<<<<<< HEAD
   def like_toggle
     like = Like.find_by(user_id: current_user.id, post_id: params[:post_id])
     if like.nil?
@@ -72,6 +73,22 @@ class PostsController < ApplicationController
     redirect_to '/posts/'+params[:post_id]
   end
 
+=======
+  # 조회수 설정
+  def log_impression
+    @hit_post = Post.find(params[:id])
+    @hit_post.impressions.create(ip_address: request.remote_ip,user_id:current_user.id)
+  end
+
+  # 투표
+  def vote
+    voted_sub = Subject.find_by(sub_con: params[:subject])
+    voted_sub.votes += 1
+    voted_sub.save
+    redirect_back(fallback_location: root_path)
+  end
+  
+>>>>>>> b1da8161c7c0b2615e7aea58d9199eb77690e6fd
 
   private
 
