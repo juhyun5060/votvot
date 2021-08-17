@@ -55,7 +55,7 @@
         <%= form_with url: "/vote", method: :get do |f| %>
           <% @post.subjects.each do |subject| %>
               <div class="sub_box">
-                <%= subject.sub_con %> <%= f.radio_button :subject, subject.sub_con %>
+                <%= subject.sub_con %> <%= f.radio_button :subject, subject.id %> <%= subject.votes %>
               </div>
           <% end %>
           <%= f.submit "투표하기", class: 'submit_btn' %>
