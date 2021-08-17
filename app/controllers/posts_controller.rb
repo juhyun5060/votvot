@@ -80,7 +80,8 @@ class PostsController < ApplicationController
 
   # 투표
   def vote
-    voted_sub = Subject.find_by(sub_con: params[:subject])
+    # 다른 게시글, 똑같은 subject 생성시 오류 발생
+    voted_sub = Subject.find_by(id: params[:subject])
     voted_sub.votes += 1
     voted_sub.save
     redirect_back(fallback_location: root_path)
