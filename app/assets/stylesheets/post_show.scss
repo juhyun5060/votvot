@@ -12,6 +12,23 @@
 
         .hot {
             float: right;
+
+            .like_btn {
+                background-position: center;
+                background-size: 100%;
+                width: 20px; height: 28px;
+                background-repeat: no-repeat;
+                border: none;
+                background-color: transparent;
+            }
+
+            .full_hot {
+                background-image: url(/images/post_show/full_hot.png);
+            }
+
+            .empty_hot {
+                background-image: url(/images/post_show/empty_hot.png);
+            }
         }
 
         .subjects {
