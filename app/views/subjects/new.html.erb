@@ -1,5 +1,28 @@
-<h1>Step 2</h1>
+<script>
+    const add_subbox = () => {
+        const box = document.getElementById("box");
+        const newS = document.createElement('p');
+        newS.innerHTML = `
+        <%= render 'form', subject: @subject, post_id: @post_id %>`;
+        box.appendChild(newS);
+    }
+    
+</script>
 
-<%= render 'form', subject: @subject, post_id: @post_id %>
+<div class="container">
+    <h1>Step 2</h1>
 
-<%= link_to 'Back', subjects_path %>
+    <input type="button" value="추가" onclick="add_subbox()"><br />
+
+    <% @current_sub.each do |current_sub| %>
+        <input type="text" value="<%= current_sub.sub_con %>" /><br />
+    <% end %>
+
+    <%= render 'form', subject: @subject, post_id: @post_id %>
+
+    <div id="box">
+        
+    </div>
+
+    <%= link_to 'Back', subjects_path %>
+</div>

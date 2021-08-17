@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get '/posts/:post_id/subjects/new' => 'subjects#new'
   get '/topten' => 'toptens#index'
 
+  post '/posts/:post_id/like' => 'posts#like_toggle'
   get '/vote', to: 'posts#vote', as: 'vote'
   
   # devise_scope :user do

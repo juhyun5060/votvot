@@ -16,6 +16,7 @@ class SubjectsController < ApplicationController
   def new
     @subject = Subject.new
     @post_id = params[:post_id]
+    @current_sub = Subject.where("post_id = ?", params[:post_id])
   end
 
   # GET /subjects/1/edit
@@ -28,7 +29,7 @@ class SubjectsController < ApplicationController
 
     respond_to do |format|
       if @subject.save
-        format.html { redirect_to @subject, notice: "Subject was successfully created." }
+        format.html { redirect_to "/posts/#{@subject.post_id}/subjects/new", notice: "Subject was successfully created." }
         format.json { render :show, status: :created, location: @subject }
       else
         format.html { render :new, status: :unprocessable_entity }

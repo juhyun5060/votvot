@@ -3,6 +3,7 @@ class Post < ApplicationRecord
     has_many :comments, dependent: :destroy
     has_many :subjects
     has_one_attached :photo
+    has_many :likes
 
     is_impressionable
     def impression_count
@@ -12,5 +13,5 @@ class Post < ApplicationRecord
     def unique_impression_count
         impressions.group(:ip_address).size.keys.length
     end
-    
+
 end

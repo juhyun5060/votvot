@@ -7,6 +7,11 @@ class User < ApplicationRecord
          has_many :posts
          has_many :comments
          has_one_attached :profile
+         has_many :likes
+
+  def is_like?(post)
+    Like.find_by(user_id: self.id, post_id: post.id).present?
+  end
 
   # validates :nickname, :uniqueness => { :message => '이미 존재하는 닉네임입니다.' }
   # validates :nickname, :presence => { :message => '필수 입력사항입니다.' }

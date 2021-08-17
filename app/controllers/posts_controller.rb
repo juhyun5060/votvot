@@ -61,6 +61,17 @@ class PostsController < ApplicationController
     end
   end
 
+  def like_toggle
+    like = Like.find_by(user_id: current_user.id, post_id: params[:post_id])
+    if like.nil?
+        Like.create(user_id: current_user.id, post_id: params[:post_id])
+    else
+        like.destroy
+    end
+
+    redirect_to '/posts/'+params[:post_id]
+  end
+
   # 조회수 설정
   def log_impression
     @hit_post = Post.find(params[:id])
@@ -74,7 +85,6 @@ class PostsController < ApplicationController
     voted_sub.save
     redirect_back(fallback_location: root_path)
   end
-  
 
   private
 

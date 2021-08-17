@@ -68,3 +68,14 @@
     <%# comment form %>
   </div>
 </div>
+
+<%= current_user.is_like? (@post) %>
+<% if current_user.is_like? (@post) %>
+  <form action="/posts/<%= @post.id %>/like" method="post">
+    <button>좋아요 취소</button>
+  </form>
+<% else %>
+  <form action="/posts/<%= @post.id %>/like" method="post">
+    <button>좋아요</button>
+  </form>
+<% end %>
