@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
   get '/posts/:post_id/subjects/new' => 'subjects#new'
   get '/topten' => 'toptens#index'
+
+  get '/vote', to: 'posts#vote', as: 'vote'
   
   # devise_scope :user do
   #   get '/login' => 'devise/sessions#new'
