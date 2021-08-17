@@ -71,7 +71,7 @@ class PostsController < ApplicationController
 
     redirect_to '/posts/'+params[:post_id]
   end
-
+  
   # 조회수 설정
   def log_impression
     @hit_post = Post.find(params[:id])
