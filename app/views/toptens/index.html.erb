@@ -3,22 +3,25 @@
 <div class="container">
     <div class="post_container">
     <% @posts.each do |post| %>
-      <div class="post">
-        <% if post.photo.attached? %>
-          <%= image_tag post.photo, class: 'photo_con' %>
-        <% else %>
-          <%= image_tag '/images/back.jpeg', class: 'photo_con' %>
-        <% end %>
-        <h5><%= link_to post.title, post %></h5>
-        <h6><%= post.content %></h6>
+      <%# <% for i in 1..10 %> 
+        <div class="post">
+          <div class="mark"><%= @i %></div>
+          <% if post.photo.attached? %>
+            <%= image_tag post.photo, class: 'photo_con' %>
+          <% else %>
+            <%= image_tag '/images/back.jpeg', class: 'photo_con' %>
+          <% end %>
+          <h5><%= link_to post.title, post %></h5>
+          <h6><%= post.content %></h6>
 
-        <h6><%= post.user.nickname %>님</h6>
-        <!-- 
-          <td><%= link_to 'Show', post %></td>
-          <td><%= link_to 'Edit', edit_post_path(post) %></td>
-          <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        -->
-      </div>
+          <h6><%= post.user.nickname %>님</h6>
+          <!-- 
+            <td><%= link_to 'Show', post %></td>
+            <td><%= link_to 'Edit', edit_post_path(post) %></td>
+            <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          -->
+        </div>
+      <%# <% end %> 
     <% end %>
   </div>
 </div>
