@@ -15,16 +15,16 @@
 
     <div class="field">
       <% form.label :title %>
-      <%= form.text_field :title, placeholder: '제목' %>
+      <%= form.text_field :title, placeholder: '제목', class: 'title' %>
     </div>
 
     <div class="field">
       <% form.label :content %>
-      <%= form.text_area :content, placeholder: '내용을 작성해주세요.' %>
+      <%= form.text_area :content, placeholder: '내용을 작성해주세요.', class: 'content' %>
     </div>
 
     <div class="field">
-      <% form.label :photo %>
+      <% form.label :photo, '사진 추가' %>
       <%= form.file_field :photo, placeholder: '사진 첨부' %>
     </div>
 
@@ -35,12 +35,14 @@
     
     <%# <%= current_user.inspect %>
 
-    <div class="actions d-inline">
-      <%= link_to '취소', root_path , class: 'cancel_btn' %>
-    </div>
-    <div class="actions d-inline">
-      <%= form.submit '다음', class: 'submit_btn' %>
-    </div>
+    <div class="btn_group">
+      <div class="actions d-inline">
+        <%= link_to '취소', root_path , class: 'cancel_btn' %>
+      </div>
+      <div class="actions d-inline">
+        <%= form.submit '다음', class: 'submit_btn' %>
+      </div>
+    </div> 
 
   </div>
 <% end %>

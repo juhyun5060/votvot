@@ -21,14 +21,14 @@
     <%= form.number_field :post_id, value: post_id, type: :hidden %>
   </div>
 
-  <p>
+  <div class="subject_con">
     <div class="field d-inline">
-      <%= form.label :sub_con, '항목' %>
-      <%= form.text_field :sub_con, :required => true %>
+      <%= form.label :sub_cons %>
+      <%= form.text_field :sub_con, :required => true, placeholder: '항목을 입력하세요', class: 'subject_input' %>
     </div>
 
     <div class="actions d-inline">
-      <%= form.submit "#{message}" %>
+      <%= form.submit "#{message}", class: 'create_btn' %>
     </div>
-  </p>
+  </div>
 <% end %>
