@@ -1,5 +1,5 @@
 
-<div class="container">
+<div class="new container">
     <h1>Step 2</h1>
 
     <% @current_sub.each do |current_sub| %>
@@ -9,5 +9,5 @@
 
     <%= render 'form', subject: @subject, post_id: @post_id, message: '생성' %>
 
-    <%= link_to '다음', "/posts/#{@post_id}" %>
+    <%= link_to '완료', "/posts/#{@post_id}", class: 'submit_btn' %>
 </div>
