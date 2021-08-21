@@ -80,10 +80,16 @@ class PostsController < ApplicationController
 
   # 투표
   def vote
-    # 다른 게시글, 똑같은 subject 생성시 오류 발생
-    voted_sub = Subject.find_by(id: params[:subject])
-    voted_sub.votes += 1
-    voted_sub.save
+    if(params[:id])
+      @voted_sub = Subject.find(params[:id])
+      @voted_sub.increment!(:votes)  # database자체에서 1 증가
+      @voted_sub.users.push(current_user.id)
+      @voted_sub.save!
+      puts "???????????"
+      puts @voted_sub.users.empty?
+    else
+      flash[:notice] = "투표할 항목을 선택해주세요"
+    end
     redirect_back(fallback_location: root_path)
   end
   
