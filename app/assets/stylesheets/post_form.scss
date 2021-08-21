@@ -1,7 +1,5 @@
 .post_form {
 
-    margin-top: 15.5vh;
-
     input {
         width: 100%;
         outline: 0;
@@ -16,20 +14,26 @@
         text-indent: 5px;
     }
 
-    .submit_btn {
-        width: auto;
-        background-color: #60f;
-        color: #fff;
-        padding: 15px 30px;
-        border-radius: 30px;
+    .btn_group {
+        text-align: right;
+        margin-top: 50px;
+
+        .submit_btn {
+            width: auto;
+            background-color: #60f;
+            color: #fff;
+            padding: 15px 30px;
+            border-radius: 30px;
+        }
+    
+        .cancel_btn {
+            width: auto;
+            background-color: #fff;
+            color: #60f;
+            padding: 15px 30px;
+            border-radius: 30px;
+            border: 1px solid #60f;
+        }
     }
 
-    .cancel_btn {
-        width: auto;
-        background-color: #fff;
-        color: #60f;
-        padding: 15px 30px;
-        border-radius: 30px;
-        border: 1px solid #60f;
-    }
 }

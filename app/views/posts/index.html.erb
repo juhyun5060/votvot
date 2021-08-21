@@ -12,10 +12,25 @@
         <% else %>
           <%= image_tag '/images/back.jpeg', class: 'photo_con' %>
         <% end %>
-        <h5><%= link_to post.title, post %></h5>
-        <h6><%= post.content %></h6>
+        <div class="text_con">
+          <h5><%= link_to post.title, post %></h5><br>
+          <h6><%= post.content %></h6><br>
 
-        <h6><%= post.user.nickname %>님</h6>
+          <div class="info_con">
+            <div class="count_con">
+              <div class="like_con">
+                <%= image_tag '/images/post_show/like_count.png', class: 'like_icon' %>
+                <%= post.likes_count %>
+              </div>&nbsp;&nbsp;
+              <div class="comment_con">
+                <%= image_tag '/images/post_show/comment.png', class: 'comment_icon' %>
+                <%= post.comments.count %>
+              </div>
+            </div>
+            <h6><%= post.user.nickname %>님</h6>
+           
+          </div>
+        </div>
         <!-- 
           <td><%= link_to 'Show', post %></td>
           <td><%= link_to 'Edit', edit_post_path(post) %></td>
@@ -23,6 +38,9 @@
         -->
       </div>
     <% end %>
+  </div><br><br><br>
+  <div class="digg_pagination">
+    <%= will_paginate @posts, :previous_label => '이전', :next_label => '다음' %>
   </div>
 </div>
 

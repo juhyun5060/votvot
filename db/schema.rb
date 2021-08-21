@@ -90,6 +90,7 @@ ActiveRecord::Schema.define(version: 2021_08_17_065931) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"
+    t.integer "likes_count"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
@@ -99,7 +100,6 @@ ActiveRecord::Schema.define(version: 2021_08_17_065931) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "post_id"
-    t.integer "users"
     t.index ["post_id"], name: "index_subjects_on_post_id"
   end
 

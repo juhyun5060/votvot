@@ -1,7 +1,7 @@
 class SubjectsController < ApplicationController
   before_action :set_subject, only: %i[ show edit update destroy ]
   before_action :authenticate_user!, except: %i[ index ]
-  before_action :correct_user, only: %i[ edit update destroy ]
+  # before_action :correct_user, only: %i[ edit update destroy ]
 
   # GET /subjects or /subjects.json
   def index
@@ -21,6 +21,7 @@ class SubjectsController < ApplicationController
 
   # GET /subjects/1/edit
   def edit
+    @post_id = params[:post_id]
   end
 
   # POST /subjects or /subjects.json
@@ -42,7 +43,7 @@ class SubjectsController < ApplicationController
   def update
     respond_to do |format|
       if @subject.update(subject_params)
-        format.html { redirect_to @subject, notice: "Subject was successfully updated." }
+        format.html { redirect_to "/posts/#{@subject.post_id}/subjects/new", notice: "Subject was successfully updated." }
         format.json { render :show, status: :ok, location: @subject }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -72,9 +73,9 @@ class SubjectsController < ApplicationController
     end
 
     # user authenticate
-    def correct_user
-      @subject = current_user.subjects.find_by(id: params[:id])
-      redirect_to posts_path, notice: "접근 권한이 없습니다." if @subject.nil?
-    end
+    # def correct_user
+    #   @subject = current_user.subjects.find_by(id: params[:id])
+    #   redirect_to posts_path, notice: "접근 권한이 없습니다." if @subject.nil?
+    # end
 
 end
