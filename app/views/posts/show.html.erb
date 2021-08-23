@@ -78,6 +78,12 @@
   <div class="comments">
     댓글 총 <%= @post.comments.count %>개
     <hr>
-    <%= render 'comments/index' %>
+
+    <%
+      @post_id = Post.find(params[:id])
+      @comments = Comment.where("post_id = ?", @post_id.id)
+    %>
+
+    <%= render template: "comments/index", :locals => { comments: @comments  } %>
   </div>
 </div>
