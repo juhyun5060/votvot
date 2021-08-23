@@ -31,76 +31,74 @@
     border: 1px solid #60f;
 }
 
+.post_index {
+    padding: 30px;
 
-.container {
     .post_container {
 
         display: grid;
         grid-template-columns: repeat(5, 1fr);
         gap: 20px;
     
-        .post {
-            box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+    .post {
+        box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+        border-top-right-radius: 10px;
+        width: 18vw;
+        height: auto;
+        text-align: center;
+        position: relative;
+    
+        .photo_con {
+            width: 100%; height: 13.4vh;
+            object-fit: cover;
             border-top-right-radius: 10px;
-            width: 18vw;
-            height: auto;
-            text-align: center;
-            position: relative;
+        }
+        
+        .text_con {
+            padding: 1.2vw;
+            text-align: left;
     
-            .photo_con {
-                width: 100%; height: 13.4vh;
-                object-fit: cover;
-                border-top-right-radius: 10px;
+            h5 {
+                font-size: 1.5em;
             }
-            
-            .text_con {
-                padding: 1.2vw;
-                text-align: left;
     
-                h5 {
-                    font-size: 1.5em;
-                }
+            h6 {
+                font-size: 1.2em;
+            }
+    
+            .info_con {
+                display: flex;
+                justify-content: space-between;
     
                 h6 {
-                    font-size: 1.2em;
+                    font-size: 1em;
                 }
     
-                .info_con {
+                .count_con {
                     display: flex;
-                    justify-content: space-between;
-                    position: absolute;
-                    bottom: 10px;
+                    // justify-content: space-between;
     
-                    h6 {
-                        font-size: 1em;
+                    .like_con {
+                        .like_icon {
+                            width: 1.3vw;
+                            height:1.5vw;
+                        }
                     }
     
-                    .count_con {
-                        display: flex;
-                        justify-content: space-between;
-    
-                        .like_con {
-                            .like_icon {
-                                width: 1.3vw;
-                                height:1.5vw;
-                            }
-                        }
-    
-                        .comment_con {
-                            .comment_icon {
-                                width: 1.5vw;
-                                height: 1.2vw;
-                            }
+                    .comment_con {
+                        .comment_icon {
+                            width: 1.5vw;
+                            height: 1.2vw;
                         }
                     }
                 }
             }
         }
-    
-        
-    
     }
+   }
+    
 }
+
 
 
 //pagination

@@ -1,5 +1,5 @@
 <%= image_tag '/images/banner.png', class: 'banner_img' %>
-<div class="container">
+<div class="post_index">
   <div class="title">실시간 게시글</div>
   <%# <button class="write_btn">글쓰기</button> %>
   <%= link_to '글쓰기', new_post_path, class: 'write_btn' %>
@@ -20,14 +20,18 @@
             <div class="count_con">
               <div class="like_con">
                 <%= image_tag '/images/post_show/like_count.png', class: 'like_icon' %>
-                <%= post.likes_count %>
+                <% if post.likes_count %>
+                  <%= post.likes_count %>
+                <% else %>
+                  0
+                <% end %>
               </div>&nbsp;&nbsp;
               <div class="comment_con">
                 <%= image_tag '/images/post_show/comment.png', class: 'comment_icon' %>
                 <%= post.comments.count %>
               </div>
             </div>
-            <h6><%= post.user.nickname %>님</h6>
+            <h6 class="user_name"><%= post.user.nickname %>님</h6>
            
           </div>
         </div>
