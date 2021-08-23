@@ -1,0 +1,26 @@
+<table>
+  <tbody>
+    <% if(@comments) %>
+      <% @comments.each do |comment| %>
+        <% 
+          user_id = comment.user_id
+          comm_user = User.find(user_id)
+        %>
+        <tr>
+          <td><%= comm_user.nickname %> : 
+          <td><%= comment.content %></td>
+          <% if(comment.user_id == current_user.id) %>
+            <td><%= link_to '수정', edit_comment_path(comment) %></td>
+            <td><%= link_to '삭제', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% end %>
+        </tr>
+      <% end %>
+    <% else %>
+      댓글이 없습니다! 첫 댓글을 남겨보세요!
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= render 'comments/form', comment: Comment.new %>
