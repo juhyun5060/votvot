@@ -1,10 +1,11 @@
 <%= image_tag '/images/banner.png', class: 'banner_img' %>
 
-<div class="container">
+<div class="container top_ten">
     <div class="post_container">
       <% @posts.each do |post| %>
         <div class="post">
-          <div class="mark"></div>
+          <%= image_tag '/images/bookmark.png', class: 'bookmark_icon' %>
+          <h6 class="number">1</h6>
           <% if post.photo.attached? %>
             <%= image_tag post.photo, class: 'photo_con' %>
           <% else %>

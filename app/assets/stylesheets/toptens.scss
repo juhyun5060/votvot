@@ -1,19 +1,23 @@
 // Place all the styles related to the toptens controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-.post {
+.top_ten {
+  margin-top: 100px;
+
+  .post {
     position: relative;
 
-    .mark {
-        position: absolute;
-        top:0;
-        color: white;
+      .bookmark_icon {
         width: 60px;
-        height: 60px;
-        border: 1px solid #000;
-        border-bottom: 25px solid transparent;
-        border-top: none;
-        border-left: 30px solid #000000;
-        border-right: 30px solid #000000;
-    }
+        position: absolute;
+        top:0; left: -8px;
+        margin: 0;
+      }
+
+      .number {
+        position: absolute;
+        color: #fff;
+        top: 16px; left: 17px;
+      }
+  }
 }
