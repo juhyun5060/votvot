@@ -16,32 +16,37 @@
         </form>
       <% end %>
     </div>
-
     <div class="info">
-      <%# <%= @post.user.profile %> 
-      <%= @post.user.nickname %> | 
+      <div class="left">
+        <%# <%= @post.user.profile %> 
+        <%= @post.user.nickname %> | 
 
-      <%
-        today = Date.current
-        post_date = Date.new(@post.created_at.year, @post.created_at.month, @post.created_at.day, @post.created_at.hour)
-      %>
-      <% if(today - post_date) <= 0 %>
-        <%= %>분전
-      <% else %>
-        <%= (today - post_date).floor %>일전
-      <% end %>
+        <%
+          today = Date.current
+          post_date = Date.new(@post.created_at.year, @post.created_at.month, @post.created_at.day, @post.created_at.hour)
+        %>
+        <% if(today - post_date) > 0 %>
+          <%= %>분전
+        <% else %>
+          <%= (today - post_date).floor %>일전
+        <% end %>
+      </div>
 
-      <%# 핫해요 %>
-      <img src="/images/post_show/like_count.png" width="10px">
-      <%# <%= @post.likes.count%>
+      <div class="right">
+        <%# 핫해요 %>
+        <img src="/images/post_show/like_count.png" width="10px">
+        <%= @post.likes.count%>
 
-      조회수
-      <%= "#{@post.unique_impression_count}" %>
+        조회수
+        <%= "#{@post.unique_impression_count}" %>
 
-      댓글
-      <%= @post.comments.count %>
-      <hr>
+        댓글
+        <%= @post.comments.count %>
+      </div>
     </div>
+
+    <br>
+    <hr>
 
     <div class="content">
       <% if @post.photo.attached? %>
@@ -55,7 +60,7 @@
         <%= form_with url: "/vote", method: :get do |f| %>
           <% @post.subjects.each do |subject| %>
               <div class="sub_box">
-                <%= subject.sub_con %> <%= f.radio_button :subject, subject.id %> <%= subject.votes %>
+                <%= subject.sub_con %> <%= f.radio_button :id, subject.id, class: 'radio' %> <%= subject.votes %>
               </div>
           <% end %>
           <%= f.submit "투표하기", class: 'submit_btn' %>
@@ -73,6 +78,6 @@
   <div class="comments">
     댓글 총 <%= @post.comments.count %>개
     <hr>
-    <%# comment form %>
+    <%= render 'comments/index' %>
   </div>
 </div>

@@ -1,8 +1,13 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!, except: %i[ index ]
+  around_action :raise_action_on_unpermitted_parameters, only: %i[create update]
 
   # GET /comments or /comments.json
   def index
+    # 현재 게시글에 달린 댓글만 가져오기
+    @post_id = Post.find(params[:id])
+    # @comments = Comment.find_by(post_id: @post_id.id)
     @comments = Comment.all
   end
 
@@ -64,6 +69,14 @@ class CommentsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def comment_params
-      params.require(:comment).permit(:content)
+      params.require(:comment).permit(:content, :post_id, :user_id, :comment_id)
+    end
+
+    def raise_action_on_unpermitted_parameters
+      original = ActionController::Parameters.action_on_unpermitted_parameters
+      ActionController::Parameters.action_on_unpermitted_parameters = :raise
+      yield
+    ensure
+      ActionController::Parameters.action_on_unpermitted_parameters = original
     end
 end
