@@ -85,10 +85,9 @@ class PostsController < ApplicationController
       @voted_sub.increment!(:votes)  # database자체에서 1 증가
       @voted_sub.users.push(current_user.id)
       @voted_sub.save!
-      puts "???????????"
-      puts @voted_sub.users.empty?
     else
       flash[:notice] = "투표할 항목을 선택해주세요"
+      # render js: "alert('투표할 항목을 선택해주세요');"
     end
     redirect_back(fallback_location: root_path)
   end
