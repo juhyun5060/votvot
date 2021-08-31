@@ -2,10 +2,10 @@
 
 <div class="top_ten post_index">
     <div class="post_container">
-      <% @posts.each do |post| %>
+      <% @posts.each.with_index(1) do |post, index| %>
         <div class="post">
           <%= image_tag '/images/bookmark.png', class: 'bookmark_icon' %>
-          <h6 class="number"><%=  %></h6>
+          <h6 class="number"><%= index %></h6>
           <% if post.photo.attached? %>
             <%= image_tag post.photo, class: 'photo_con' %>
           <% else %>

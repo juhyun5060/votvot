@@ -11,14 +11,9 @@
     </div>
   <% end %>
 
-  <div class="field d-none">
-    <%= form.label :votes %>
-    <%= form.number_field :votes, value: 0, type: :hidden %>
-  </div>  
-
    <div class="field d-none">
     <%= form.label :post_id %>
-    <%= form.number_field :post_id, value: post_id, type: :hidden %>
+    <%= form.number_field :post_id, type: :hidden %>
   </div>
 
   <div class="subject_con">

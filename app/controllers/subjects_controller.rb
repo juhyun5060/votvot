@@ -14,9 +14,12 @@ class SubjectsController < ApplicationController
 
   # GET /subjects/new
   def new
-    @subject = Subject.new
-    @post_id = params[:post_id]
-    @current_sub = Subject.where("post_id = ?", params[:post_id])
+    @subject = Subject.new(post_id: params[:post_id])
+    @subjects = Subject.where(post_id: params[:post_id])
+
+    # @post = Post.find(params[:post_id])
+    # @post.subjects.new
+    # @subjects = @post.subjects
   end
 
   # GET /subjects/1/edit
