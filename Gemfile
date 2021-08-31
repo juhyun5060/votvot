@@ -14,6 +14,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'devise', '~> 4.8'
 gem 'will_paginate', '~> 3.3.0'
 gem 'will_paginate-bootstrap', '~> 1.0', '>= 1.0.2'
+gem 'figaro', '~> 1.2'
 
 # 조회수
 gem 'impressionist'

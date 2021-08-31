@@ -5,7 +5,7 @@
       <% @posts.each do |post| %>
         <div class="post">
           <%= image_tag '/images/bookmark.png', class: 'bookmark_icon' %>
-          <h6 class="number">1</h6>
+          <h6 class="number"><%=  %></h6>
           <% if post.photo.attached? %>
             <%= image_tag post.photo, class: 'photo_con' %>
           <% else %>
@@ -14,12 +14,15 @@
           <div class="text_con">
             <h5><%= link_to post.title, post %></h5><br>
             <h6><%= post.content %></h6><br>
-
             <div class="info_con">
               <div class="count_con">
                 <div class="like_con">
                   <%= image_tag '/images/post_show/like_count.png', class: 'like_icon' %>
-                  <%= post.likes_count %>
+                  <% if post.likes_count %>
+                    <%= post.likes_count %>
+                  <% else %>
+                    0
+                  <% end %>
                 </div>&nbsp;&nbsp;
                 <div class="comment_con">
                   <%= image_tag '/images/post_show/comment.png', class: 'comment_icon' %>
