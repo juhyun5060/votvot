@@ -83,8 +83,13 @@ class PostsController < ApplicationController
     if(params[:id])
       @voted_sub = Subject.find(params[:id])
       @voted_sub.increment!(:votes)  # database자체에서 1 증가
-      @voted_sub.users.push(current_user.id)
-      @voted_sub.save!
+
+      # n:n 관계
+      # subjects_users => table 생성
+      # - subject_id(:reference) unique
+      # - user_id(:reference) unique
+
+      # SubjectUser.where(user_id:current_user.id, subject_id)
     else
       flash[:notice] = "투표할 항목을 선택해주세요"
       # render js: "alert('투표할 항목을 선택해주세요');"

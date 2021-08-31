@@ -43,10 +43,10 @@ ActiveRecord::Schema.define(version: 2021_08_23_031203) do
   create_table "comments", force: :cascade do |t|
     t.integer "post_id"
     t.integer "user_id"
-    t.integer "comment_id"
     t.text "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "parent_id"
   end
 
   create_table "impressions", force: :cascade do |t|
@@ -100,6 +100,7 @@ ActiveRecord::Schema.define(version: 2021_08_23_031203) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "post_id"
+    t.integer "users"
     t.index ["post_id"], name: "index_subjects_on_post_id"
   end
 

@@ -3,13 +3,6 @@ class CommentsController < ApplicationController
   before_action :authenticate_user!, except: %i[ index ]
   around_action :raise_action_on_unpermitted_parameters, only: %i[create update]
 
-  # GET /comments or /comments.json
-  def index
-    # 현재 게시글에 달린 댓글만 가져오기
-    @post_id = Post.find(params[:id])
-    @comments = Comment.where("post_id = ?", @post_id.id)
-  end
-
   # GET /comments/1 or /comments/1.json
   def show
   end

@@ -25,11 +25,7 @@
           today = Date.current
           post_date = Date.new(@post.created_at.year, @post.created_at.month, @post.created_at.day, @post.created_at.hour)
         %>
-        <% if(today - post_date) > 0 %>
-          <%= %>분전
-        <% else %>
-          <%= (today - post_date).floor %>일전
-        <% end %>
+        <%= (today - post_date).floor %>일전
       </div>
 
       <div class="right">
@@ -79,11 +75,6 @@
     댓글 총 <%= @post.comments.count %>개
     <hr>
 
-    <%
-      @post_id = Post.find(params[:id])
-      @comments = Comment.where("post_id = ?", @post_id.id)
-    %>
-
-    <%= render template: "comments/index", :locals => { comments: @comments  } %>
+    <%= render template: "comments/index", :locals => { comments: @post.comments  } %>
   </div>
 </div>
