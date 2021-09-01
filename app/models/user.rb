@@ -8,6 +8,7 @@ class User < ApplicationRecord
          has_many :comments, dependent: :destroy
          has_one_attached :profile
          has_many :likes, dependent: :destroy
+         has_many :subjects_users, dependent: :destroy
 
   def is_like?(post)
     Like.find_by(user_id: self.id, post_id: post.id).present?

@@ -89,7 +89,10 @@ class PostsController < ApplicationController
       # - subject_id(:reference) unique
       # - user_id(:reference) unique
 
-      # SubjectUser.where(user_id:current_user.id, subject_id)
+      # SubjectsUser.where(user_id:current_user.id, subject_id)
+
+      # 투표하면 subject_users 테이블에 user_id, subject_id 추가
+      SubjectsUser.create(subject_id:@voted_sub.id, user_id:current_user.id)
     else
       flash[:notice] = "투표할 항목을 선택해주세요"
       # render js: "alert('투표할 항목을 선택해주세요');"
