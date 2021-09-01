@@ -1,6 +1,6 @@
 <div class="comment_index">
-  <% if(@comments) %>
-    <% @comments.each do |comment| %>
+  <% if(comments) %>
+    <% comments.each do |comment| %>
       <% 
         user_id = comment.user_id
         comm_user = User.find(user_id)
@@ -10,7 +10,7 @@
       <% if(comment.user_id == current_user.id) %>
         <div class="crud">
           <%= link_to '수정', edit_comment_path(comment) %>
-          <%#
+          <%# javascript 사용해서 버튼 누르면 수정 폼 나오게
           <script>
             수정 button action
           </script> 

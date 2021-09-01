@@ -1,4 +1,4 @@
 class Subject < ApplicationRecord
     belongs_to :post, :optional => true
-    serialize :users, Array
+    has_many :subjects_users, dependent: :destroy
 end
