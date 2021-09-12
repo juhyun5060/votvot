@@ -80,22 +80,30 @@ class PostsController < ApplicationController
 
   # 투표
   def vote
-    if(params[:id])
-      @voted_sub = Subject.find(params[:id])
-      @voted_sub.increment!(:votes)  # database자체에서 1 증가
-
-      # n:n 관계
-      # subjects_users => table 생성
-      # - subject_id(:reference) unique
-      # - user_id(:reference) unique
-
-      # SubjectsUser.where(user_id:current_user.id, subject_id)
-
-      # 투표하면 subject_users 테이블에 user_id, subject_id 추가
-      SubjectsUser.create(subject_id:@voted_sub.id, user_id:current_user.id)
+    @voted_sub = Subject.find(params[:id])
+    # 유저가 투표한 포스트
+    # @post_id = 
+    @userCheck = SubjectsUser.where(user_id:current_user.id, subject_id:@voted_sub)
+    # 이미 투표했다면
+    if(@userCheck)
+      flash[:notice] = "이미 투표했습니다!"
     else
-      flash[:notice] = "투표할 항목을 선택해주세요"
-      # render js: "alert('투표할 항목을 선택해주세요');"
+      if(params[:id])
+        @voted_sub.increment!(:votes)  # database자체에서 1 증가
+  
+        # n:n 관계
+        # subjects_users => table 생성
+        # - subject_id(:reference) unique
+        # - user_id(:reference) unique
+  
+        # SubjectsUser.where(user_id:current_user.id, subject_id)
+  
+        # 투표하면 subject_users 테이블에 user_id, subject_id 추가
+        SubjectsUser.create(subject_id:@voted_sub.id, user_id:current_user.id)
+      else
+        flash[:notice] = "투표할 항목을 선택해주세요"
+        # render js: "alert('투표할 항목을 선택해주세요');"
+      end
     end
     redirect_back(fallback_location: root_path)
   end
